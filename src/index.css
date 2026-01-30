@@ -1,13 +1,96 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "tailwindcss";
+
+
+@theme {
+  --color-valentine-dark: #120916;
+  --color-valentine-violet: #2B1B3F;
+  --color-valentine-pink: #F7A1C4;
+  --color-valentine-red: #E63963;
+  --color-valentine-cream: #FFF1E6;
+  --color-valentine-gold: #F4C430;
+
+  --font-valentine: 'Playfair Display', serif;
+  --font-handwritten: cursive; /* Fallback to system cursive font */
+  --font-serif: 'Playfair Display', serif;
+  --color-ivory: #FFF1E6;
+  --color-rose-gold: #E8AEB7;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Custom Utilities */
+.text-glow {
+  text-shadow: 0 0 10px rgba(247, 161, 196, 0.5);
 }
+
+.text-gold-glow {
+  text-shadow: 0 0 10px rgba(244, 196, 48, 0.5);
+}
+
+.text-glow-rose {
+  text-shadow: 0 0 12px rgba(232, 174, 183, 0.6);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, var(--color-valentine-dark), var(--color-valentine-violet));
+  color: #FFFFFF; /* Primary text: pure white for maximum contrast */
+  font-family: var(--font-serif);
+  font-size: 18px; /* Slightly larger for better legibility and impact */
+  letter-spacing: 0.2px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  /* Prevent scrolling for the immersive experience */
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  touch-action: none;
+  /* Prevent browser gestures on canvas */
+}
+
+/* Magical Animations */
+@keyframes shimmer {
+  0% {
+    background-position: 200% center;
+  }
+
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) scale(0.8);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.4;
+  }
+
+  90% {
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translateY(-20vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Debug UI tweaks */
+.debug-panel { font-family: var(--font-valentine); font-size: 13px; }
