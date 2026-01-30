@@ -29,9 +29,8 @@ const PerfOverlay: React.FC = () => {
     let frames = 0;
     const start = performance.now();
     const stopAt = start + seconds * 1000;
-    let raf = 0;
     const sample = () => {
-      raf = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
         frames++;
         const now = performance.now();
         if (now < stopAt) return sample();

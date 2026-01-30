@@ -52,7 +52,6 @@ export const CameraOverlay: React.FC = () => {
     const cameraPosition = useExperienceStore(s => s.cameraPosition);
     const setCameraPosition = useExperienceStore(s => s.setCameraPosition);
     const cameraSize = useExperienceStore(s => s.cameraSize);
-    const setCameraSize = useExperienceStore(s => s.setCameraSize);
 
     // Hover handlers
     const handleMouseEnter = useCallback(() => {

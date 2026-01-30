@@ -6,7 +6,7 @@ interface MagicalCardProps {
     subText?: string;
     isVisible: boolean;
     layout?: 'center' | 'top-left' | 'top-right' | 'bottom-right' | 'top-center' | 'bottom-center' | 'center-left' | 'bottom-left';
-    emphasis?: 'whisper' | 'normal' | 'grand';
+    emphasis?: 'whisper' | 'normal' | 'grand' | 'dramatic';
 }
 
 export const MagicalCard: React.FC<MagicalCardProps> = ({
@@ -69,7 +69,13 @@ export const MagicalCard: React.FC<MagicalCardProps> = ({
     }
 
     // Emphasis Logic - Reduced font sizes
-    const getFontSize = () => emphasis === 'grand' ? 'clamp(24px, 4vw, 32px)' : 'clamp(18px, 2.5vw, 24px)';
+    const getFontSize = () => {
+        switch (emphasis) {
+            case 'dramatic': return 'clamp(32px, 5vw, 48px)';
+            case 'grand': return 'clamp(24px, 4vw, 32px)';
+            default: return 'clamp(18px, 2.5vw, 24px)';
+        }
+    };
 
     return (
         <AnimatePresence>
